@@ -139,6 +139,7 @@
     rea = remote add
     rex = remote rm
     rem = remote rename
+	up = !git fetch && git rebase --autostash FETCH_HEAD
 
 [push]
     default = matching
