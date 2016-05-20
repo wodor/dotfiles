@@ -34,3 +34,10 @@ chpwd_functions=( auto-ls $chpwd_functions )
 test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_integration.zsh
 
 eval "$(docker-machine env default)"
+
+alias vssh='vagrant ssh'
+alias vup='vagrant up'
+alias g=git
+alias 'git_volatile'='git log --pretty=format: --name-only | sort | uniq -c | sort -rg | head -10'
+
+eval "$(docker-machine env dinghy)"

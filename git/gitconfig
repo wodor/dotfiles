@@ -142,7 +142,7 @@
 	up = !git fetch && git rebase --autostash FETCH_HEAD
 
 [push]
-    default = matching
+    default = simple
 
 [url "git@github.com:"]
     insteadof = github:
