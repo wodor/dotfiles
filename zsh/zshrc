@@ -39,5 +39,7 @@ alias vssh='vagrant ssh'
 alias vup='vagrant up'
 alias g=git
 alias 'git_volatile'='git log --pretty=format: --name-only | sort | uniq -c | sort -rg | head -10'
+alias composer='php -d memory_limit=-1 `which composer`'
+
 
 eval "$(docker-machine env dinghy)"
