@@ -1,10 +1,12 @@
 # uncomment to profile prompt startup with zprof
-# zmodload zsh/zprof
+#zmodload zsh/zprof
 
 # vim bindings
 bindkey -v
 
 fpath=( "$HOME/.zfunctions" $fpath )
+export NVM_DIR="$HOME/.nvm"
+  . "$(brew --prefix nvm)/nvm.sh"
 
 # initialize autocomplete here, otherwise functions won't be loaded
 autoload -Uz compinit
@@ -12,7 +14,7 @@ compinit
 zmodload zsh/complist
 
 # Load additional config like history.zsh, etc…
-for file in ~/dotfiles/zsh/{antigen,completion,config,fpath,history,path}.zsh; do
+for file in ~/dotfiles/zsh/{antigen,completion,config,fpath,history,path,prompt}.zsh; do
   [ -r "$file" ] && source "$file"
 done
 unset file
@@ -26,7 +28,7 @@ auto-ls () {
 chpwd_functions=( auto-ls $chpwd_functions )
 
 # uncomment to finish profiling
-# zprof
+#zprof
 
 # Load default dotfiles
 #source ~/.bash_profile
@@ -42,6 +44,10 @@ alias 'git_volatile'='git log --pretty=format: --name-only | sort | uniq -c | so
 #alias composer='php -d memory_limit=-1 /usr/local/bin/composer'
 alias git='nocorrect git' 
 alias dconsole='docker-compose exec web ./app/console'
+alias drun='docker-compose exec web ./bin/console'
+alias composer='php -d memory_limit=-1 /usr/local/bin/composer --ignore-platform-reqs'
+
+eval $(thefuck --alias)
 
 
 

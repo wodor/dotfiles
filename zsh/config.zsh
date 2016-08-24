@@ -10,7 +10,7 @@ export CLICOLOR=true
 setopt nobeep                  # i hate beeps
 setopt autopushd               # automatically append dirs to the push/pop list
 setopt cdablevars              # avoid the need for an explicit $
-setopt correct_all             # correct all the words in the command line
+# setopt correct_all             # correct all the words in the command line
 setopt noflowcontrol           # if I could disable Ctrl-s completely I would!
 setopt RM_STAR_WAIT            # confirmation after 'rm *' etc..
 
