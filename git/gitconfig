@@ -7,12 +7,6 @@
 #   Ben O'Hara <bohara@gmail.com>
 #
 
-# Global Config
-[user]
-    #name = "**Your Name**"
-    #email = "**Your Email**"
-    #signingkey = **Your GPG ID**
-
 [branch "master"]
     remote = origin
     merge = refs/heads/master
@@ -150,4 +144,4 @@
 
 [user]
 	name = Artur 'Wodor' Wielogorski
-	email = awielogorski@inviqa.com
+	email = wodor@wodor.net
