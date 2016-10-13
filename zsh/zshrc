@@ -46,6 +46,7 @@ alias git='nocorrect git'
 alias dconsole='docker-compose exec web ./app/console'
 alias drun='docker-compose exec web ./bin/console'
 alias composer='php -d memory_limit=-1 /usr/local/bin/composer --ignore-platform-reqs'
+alias weather='curl http://wttr.in/manchester'
 
 eval $(thefuck --alias)
 
