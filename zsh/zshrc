@@ -44,11 +44,17 @@ alias 'git_volatile'='git log --pretty=format: --name-only | sort | uniq -c | so
 #alias composer='php -d memory_limit=-1 /usr/local/bin/composer'
 alias git='nocorrect git' 
 alias dconsole='docker-compose exec web ./app/console'
+alias ez='docker-compose exec ezweb ./app_ez/console'
 alias drun='docker-compose exec web ./bin/console'
 alias composer='php -d memory_limit=-1 /usr/local/bin/composer --ignore-platform-reqs'
 alias weather='curl http://wttr.in/manchester'
-
+alias pods='kubectl --namespace=$NS get pods'
+alias names='kubectl get namespaces'
+alias prodcontext='kubectl config use-context ft-prod'
+alias devcontext='kubectl config use-context ft-dev'
+alias dspec='docker-compose exec ezweb ./bin/phpspec'
 eval $(thefuck --alias)
+alias remove_old_branches=" git fetch -p && git branch -vv --no-color | awk '/: gone]/{print $1}' | xargs git branch -d"
 
 
 
