@@ -54,7 +54,7 @@ alias prodcontext='kubectl config use-context ft-prod'
 alias devcontext='kubectl config use-context ft-dev'
 alias dspec='docker-compose exec ezweb ./bin/phpspec'
 eval $(thefuck --alias)
-alias remove_old_branches=" git fetch -p && git branch -vv --no-color | awk '/: gone]/{print $1}' | xargs git branch -d"
+alias remove_old_branches="git fetch -p && git branch -vv --no-color | grep gone | cut -d ' ' -f3 | xargs git branch -d"
 
 
 
