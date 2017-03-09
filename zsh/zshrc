@@ -58,6 +58,7 @@ alias remove_old_branches="git fetch -p && git branch -vv --no-color | grep gone
 alias services='kubectl describe services --namespace=$NS'
 alias uatcontext='kubectl config use-context ft-staging; export NS=htsi-fe-uat'
 alias kube='kubectl --namespace=$NS'
+alias kubey='kubectl --namespace=$NS -o yaml'
 
 
 
