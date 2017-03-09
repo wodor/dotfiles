@@ -48,14 +48,16 @@ alias ez='docker-compose exec ezweb ./app/console'
 alias drun='docker-compose exec web ./bin/console'
 alias composer='php -d memory_limit=-1 /usr/local/bin/composer --ignore-platform-reqs'
 alias weather='curl http://wttr.in/manchester'
-alias pods='kubectl --namespace=$NS get pods'
+alias pods='kubectl --namespace=$NS get pods --show-labels'
 alias names='kubectl get namespaces'
-alias prodcontext='kubectl config use-context ft-prod'
+alias prodcontext='kubectl config use-context ft-prod; export NS=htsi-fe-production'
 alias devcontext='kubectl config use-context ft-dev'
 alias dspec='docker-compose exec ezweb ./bin/phpspec'
 eval $(thefuck --alias)
 alias remove_old_branches="git fetch -p && git branch -vv --no-color | grep gone | cut -d ' ' -f3 | xargs git branch -d"
 alias services='kubectl describe services --namespace=$NS'
-alias uatcontext='kubectl config use-context ft-staging'
+alias uatcontext='kubectl config use-context ft-staging; export NS=htsi-fe-uat'
+alias kube='kubectl --namespace=$NS'
+
 
 
