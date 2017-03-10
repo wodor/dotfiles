@@ -33,6 +33,10 @@ chpwd_functions=( auto-ls $chpwd_functions )
 # Load default dotfiles
 #source ~/.bash_profile
 
+#Iterm2
+source ~/.iterm2_shell_integration.`basename $SHELL`
+
+
 test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_integration.zsh
 
 #eval "$(docker-machine env default)"
