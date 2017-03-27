@@ -65,6 +65,7 @@ alias kube='kubectl --namespace=$NS'
 alias kubey='kubectl --namespace=$NS -o yaml'
 alias get='kube get'
 alias dc='docker-compose exec web ./app/console'
+alias e='docker-compose exec web'
 
 
 
