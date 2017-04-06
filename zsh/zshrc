@@ -56,7 +56,7 @@ alias pods='kubectl --namespace=$NS get pods --show-labels'
 alias names='kubectl get namespaces'
 alias prodcontext='kubectl config use-context ft-prod; export NS=htsi-fe-production'
 alias devcontext='kubectl config use-context ft-dev'
-alias dspec='docker-compose exec ezweb ./bin/phpspec'
+alias dspec='docker-compose exec web ./bin/phpspec'
 eval $(thefuck --alias)
 alias remove_old_branches="git fetch -p && git branch -vv --no-color | grep gone | cut -d ' ' -f3 | xargs git branch -d"
 alias services='kubectl describe services --namespace=$NS'
