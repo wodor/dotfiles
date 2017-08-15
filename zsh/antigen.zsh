@@ -2,59 +2,57 @@ source ~/dotfiles/antigen/antigen.zsh
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
 
-local b="antigen-bundle"
-
 # $b atom
-$b brew
-$b brew-cask
+antigen bundle brew
+antigen bundle brew-cask
 # Guess what to install when running an unknown command.
-$b command-not-found
-$b composer
-$b docker
-$b extract
-# $b common-aliases
-# $b git
-# $b gitfast
-# $b git-extras
-$b heroku
-$b httpie
-$b last-working-dir
-$b lol
-$b vagrant
-$b osx
+antigen bundle command-not-found
+antigen bundle composer
+antigen bundle docker
+antigen bundle extract
+# antigen bundle common-aliases
+# antigen bundle git
+# antigen bundle gitfast
+# antigen bundle git-extras
+antigen bundle heroku
+antigen bundle httpie
+antigen bundle last-working-dir
+antigen bundle lol
+antigen bundle vagrant
+antigen bundle osx
 
-$b sudo
-$b symfony2
-# $b web-search
-$b arialdomartini/oh-my-git
+# antigen bundle sudo
+antigen bundle symfony2
+# antigen bundle web-search
+antigen bundle arialdomartini/oh-my-git
 
 # Tracks your most used directories, based on 'frecency'.
-$b robbyrussell/oh-my-zsh plugins/z
+antigen bundle robbyrussell/oh-my-zsh plugins/z
 
 # nicoulaj's moar completion files for zsh
-$b zsh-users/zsh-completions src
+antigen bundle zsh-users/zsh-completions src
 
 # Syntax highlighting on the readline
-$b zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-syntax-highlighting
 
 # colors for all files!
-$b trapd00r/zsh-syntax-highlighting-filetypes
+antigen bundle trapd00r/zsh-syntax-highlighting-filetypes
 
 # history search
-$b zsh-users/zsh-history-substring-search ./zsh-history-substring-search.zsh
+antigen bundle zsh-users/zsh-history-substring-search ./zsh-history-substring-search.zsh
 
 # dont set a theme, because pure does it all
-# $b mafredri/zsh-async
-# $b sindresorhus/pure
+# antigen bundle mafredri/zsh-async
+# antigen bundle sindresorhus/pure
 
 # suggestion as you type
-$b zsh-users/zsh-autosuggestions
+antigen bundle zsh-users/zsh-autosuggestions
 
 antigen theme agnoster
 
 #antigen theme arialdomartini/oh-my-git-themes oppa-lana-style
 
-#antigen theme ~/dotfiles/zsh theme
+antigen theme ~/dotfiles/zsh wodor
 
 # Tell antigen that you're done.
 antigen apply

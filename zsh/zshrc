@@ -38,6 +38,7 @@ source ~/.iterm2_shell_integration.`basename $SHELL`
 
 
 test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_integration.zsh
+google() { open -a "Google Chrome" "http://www.google.com/search?q=$1"; } 
 
 #eval "$(docker-machine env default)"
 
@@ -52,20 +53,32 @@ alias ez='docker-compose exec ezweb ./app/console'
 alias drun='docker-compose exec web ./bin/console'
 alias composer='php -d memory_limit=-1 /usr/local/bin/composer --ignore-platform-reqs'
 alias weather='curl http://wttr.in/manchester'
-alias pods='kubectl --namespace=$NS get pods --show-labels'
+alias tofana='curl http://wttr.in/~Tofane'
+alias pods='echo "\e[31m $NS \e[0m"; kubectl --namespace=$NS get pods --show-labels -o wide'
 alias names='kubectl get namespaces'
-alias prodcontext='kubectl config use-context ft-prod; export NS=htsi-fe-production'
+alias prodcontext='kubectl config use-context ft-prod; NS=XXXXXXXXXXXXXXXXXXX; names;'
 alias devcontext='kubectl config use-context ft-dev'
 alias dspec='docker-compose exec web ./bin/phpspec'
-eval $(thefuck --alias)
+#eval $(thefuck --alias)
 alias remove_old_branches="git fetch -p && git branch -vv --no-color | grep gone | cut -d ' ' -f3 | xargs git branch -d"
 alias services='kubectl describe services --namespace=$NS'
-alias uatcontext='kubectl config use-context ft-staging; export NS=htsi-fe-uat'
-alias kube='kubectl --namespace=$NS'
-alias kubey='kubectl --namespace=$NS -o yaml'
+alias htsiUATcontext='kubectl config use-context ft-staging; export NS=htsi-fe-uat'
+alias icintegration='kubectl config use-context us-staging; export NS=ic-integration; echo NS=$NS'
+alias icuat='kubectl config use-context us-staging; export NS=ic-uat; echo NS=$NS'
+alias kget='echo "\e[31m $NS \e[0m"; kubectl --namespace=$NS get'
+alias kgety='kubectl --namespace=$NS -o yaml get'
 alias get='kube get'
 alias dc='docker-compose exec web ./app/console'
 alias e='docker-compose exec web'
+alias ftaintkube='kubectl -n ftadviser-integration'
+alias ftauatkube='kubectl -n ftadviser-uat'
+
+source <(kubectl completion zsh)
 
 
 
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/wodor/Downloads/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/wodor/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/wodor/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/wodor/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
