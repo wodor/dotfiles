@@ -1,84 +1,81 @@
-# uncomment to profile prompt startup with zprof
 #zmodload zsh/zprof
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# vim bindings
-bindkey -v
+# Path to your oh-my-zsh installation.
+export ZSH="/Users/wodor/.oh-my-zsh"
 
-fpath=( "$HOME/.zfunctions" $fpath )
-export NVM_DIR="$HOME/.nvm"
-  . "$(brew --prefix nvm)/nvm.sh"
-
-# initialize autocomplete here, otherwise functions won't be loaded
-autoload -Uz compinit
-compinit
-zmodload zsh/complist
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+ZSH_THEME="agnoster"
+DEFAULT_USER=`whoami`
+export EDITOR='vim'
 
 # Load additional config like history.zsh, etc…
-for file in ~/dotfiles/zsh/{antigen,completion,config,fpath,history,path,prompt}.zsh; do
+for file in ~/code/dotfiles/zsh/{antigen,completion,config,fpath,history,path,fasd,aliases}.zsh; do
   [ -r "$file" ] && source "$file"
 done
 unset file
 
-# Automatically list directory contents on `cd`.
-auto-ls () {
-	emulate -L zsh;
-	# explicit sexy ls'ing as aliases arent honored in here.
-	hash gls >/dev/null 2>&1 && CLICOLOR_FORCE=1 gls -aFh --color --group-directories-first || ls
-}
-chpwd_functions=( auto-ls $chpwd_functions )
+# Set list of themes to pick from when loading at random
+# Setting this variable when ZSH_THEME=random will cause zsh to load
+# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
+# If set to an empty array, this variable will have no effect.
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
-# uncomment to finish profiling
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
+
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
+
+# Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
+
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
+
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+
+# Which plugins would you like to load?
+# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(
+  git
+  history-substring-search
+)
+
+source $ZSH/oh-my-zsh.sh
+
+# ssh
+# export SSH_KEY_PATH="~/.ssh/rsa_id"
+
+
 #zprof
 
-# Load default dotfiles
-#source ~/.bash_profile
-
-#Iterm2
-source ~/.iterm2_shell_integration.`basename $SHELL`
-
-
-test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_integration.zsh
-google() { open -a "Google Chrome" "http://www.google.com/search?q=$1"; } 
-
-#eval "$(docker-machine env default)"
-
-alias vssh='vagrant ssh'
-alias vup='vagrant up'
-alias g=git
-alias 'git_volatile'='git log --pretty=format: --name-only | sort | uniq -c | sort -rg | head -10'
-#alias composer='php -d memory_limit=-1 /usr/local/bin/composer'
-alias git='nocorrect git' 
-alias dconsole='docker-compose exec web ./app/console'
-alias ez='docker-compose exec ezweb ./app/console'
-alias drun='docker-compose exec web ./bin/console'
-alias composer='php -d memory_limit=-1 /usr/local/bin/composer --ignore-platform-reqs'
-alias weather='curl http://wttr.in/manchester'
-alias tofana='curl http://wttr.in/~Tofane'
-alias pods='echo "\e[31m $NS \e[0m"; kubectl --namespace=$NS get pods --show-labels -o wide'
-alias names='kubectl get namespaces'
-alias prodcontext='kubectl config use-context ft-prod; NS=XXXXXXXXXXXXXXXXXXX; names;'
-alias devcontext='kubectl config use-context ft-dev'
-alias dspec='docker-compose exec web ./bin/phpspec'
-#eval $(thefuck --alias)
-alias remove_old_branches="git fetch -p && git branch -vv --no-color | grep gone | cut -d ' ' -f3 | xargs git branch -d"
-alias services='kubectl describe services --namespace=$NS'
-alias htsiUATcontext='kubectl config use-context ft-staging; export NS=htsi-fe-uat'
-alias icintegration='kubectl config use-context us-staging; export NS=ic-integration; echo NS=$NS'
-alias icuat='kubectl config use-context us-staging; export NS=ic-uat; echo NS=$NS'
-alias kget='echo "\e[31m $NS \e[0m"; kubectl --namespace=$NS get'
-alias kgety='kubectl --namespace=$NS -o yaml get'
-alias get='kube get'
-alias dc='docker-compose exec web ./app/console'
-alias e='docker-compose exec web'
-alias ftaintkube='kubectl -n ftadviser-integration'
-alias ftauatkube='kubectl -n ftadviser-uat'
-
-source <(kubectl completion zsh)
-
-
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/wodor/Downloads/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/wodor/Downloads/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/wodor/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/wodor/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+export PATH="/usr/local/opt/mysql-client/bin:$PATH"

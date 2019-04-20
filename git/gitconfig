@@ -47,6 +47,7 @@
     pager = less -FRSX
     whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
 	excludesfile = /Users/wodor/.gitignore
+	autocrlf = input
 
 [diff]
     tool = vimdiff
@@ -138,7 +139,7 @@
 	up = !git fetch && git rebase --autostash FETCH_HEAD
 
 [push]
-    default = simple
+	default = current
 
 [url "git@github.com:"]
     insteadof = github:

@@ -1,12 +1,12 @@
-source ~/dotfiles/antigen/antigen.zsh
+source ~/code/dotfiles/antigen/antigen.zsh
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
 
 # $b atom
-antigen bundle brew
-antigen bundle brew-cask
+
+# antigen bundle brew-cask
 # Guess what to install when running an unknown command.
-antigen bundle command-not-found
+# antigen bundle command-not-found
 antigen bundle composer
 antigen bundle docker
 antigen bundle extract
@@ -14,11 +14,10 @@ antigen bundle extract
 # antigen bundle git
 # antigen bundle gitfast
 # antigen bundle git-extras
-antigen bundle heroku
 antigen bundle httpie
-antigen bundle last-working-dir
-antigen bundle lol
-antigen bundle vagrant
+# antigen bundle last-working-dir
+# antigen bundle lol
+
 antigen bundle osx
 
 # antigen bundle sudo
@@ -48,11 +47,14 @@ antigen bundle zsh-users/zsh-history-substring-search ./zsh-history-substring-se
 # suggestion as you type
 antigen bundle zsh-users/zsh-autosuggestions
 
+#antigen bundle dotenv
+antigen bundle jsontools
+
 antigen theme agnoster
 
 #antigen theme arialdomartini/oh-my-git-themes oppa-lana-style
 
-antigen theme ~/dotfiles/zsh wodor
+#antigen theme ~/code/dotfiles/zsh wodor
 
 # Tell antigen that you're done.
 antigen apply
