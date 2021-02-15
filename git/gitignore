@@ -46,4 +46,8 @@ Thumbs.db
 svn-commit.*
 tags
 TAGS
-.env.wodor
+*.wodor.*
+.vscode
+.env.local
+#.envrc
+node_modules

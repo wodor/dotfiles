@@ -17,8 +17,9 @@ antigen bundle extract
 antigen bundle httpie
 # antigen bundle last-working-dir
 # antigen bundle lol
+antigen bundle aws
 
-antigen bundle osx
+#antigen bundle osx
 
 # antigen bundle sudo
 antigen bundle symfony2

@@ -68,13 +68,15 @@ unset file
 plugins=(
   git
   history-substring-search
+  aws
 )
 
-source $ZSH/oh-my-zsh.sh
+#source $ZSH/oh-my-zsh.sh
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
+#eval "$(direnv hook zsh)"
 
 #zprof
 
