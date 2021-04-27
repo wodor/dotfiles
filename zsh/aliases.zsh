@@ -11,5 +11,5 @@ alias wodor-env='set -a;. ./.env.wodor;set +a'
 
 alias stop='spotify stop'
 alias play='spotify play'
-alias last-dev-task="aws ecs describe-tasks --cluster rally-dev --tasks `aws ecs list-tasks --cluster rally-dev | jq -r '. | .taskArns[0]'` | jq -r '. |  .tasks[0].taskDefinitionArn'"
+# alias last-dev-task="aws ecs describe-tasks --cluster rally-dev --tasks `aws ecs list-tasks --cluster rally-dev | jq -r '. | .taskArns[0]'` | jq -r '. |  .tasks[0].taskDefinitionArn'"
 
