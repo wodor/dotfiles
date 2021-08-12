@@ -138,6 +138,8 @@
     rem = remote rename
 	up = !git fetch && git rebase --autostash FETCH_HEAD
 
+    recent = for-each-ref --sort=committerdate refs/remotes/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
+
 [push]
 	default = current
 

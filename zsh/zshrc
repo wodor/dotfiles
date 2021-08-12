@@ -1,6 +1,6 @@
 #zmodload zsh/zprof
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/wodor/.oh-my-zsh"
@@ -82,11 +82,20 @@ export PATH="/usr/local/opt/mysql-client/bin:$PATH"
 
 source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
 source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
-export PATH="/usr/local/opt/php@7.4/bin:$PATH"
-export PATH="/usr/local/opt/php@7.4/sbin:$PATH"
+#export PATH="/usr/local/opt/php@7.4/bin:$PATH"
+#export PATH="/usr/local/opt/php@7.4/sbin:$PATH"
 export PATH="$HOME/.composer/vendor/bin:$PATH"
 export LIQUIBASE_HOME="/usr/local/opt/liquibase/libexec" 
 
 
 alias exec57='docker exec -it `docker ps | grep "localdb_57" | cut -d " "  -f 1` '
 alias exec55='docker exec -it `docker ps | grep "percona:5\.5" | cut -d " "  -f 1` '
+export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+
+export GOPATH="/usr/local"
+export GOBIN=/usr/local/bin
+
+export PATH="$HOME/.symfony/bin:$PATH"
+export PATH="$HOME/code/k8s-devtool/bin:$PATH"
+export PATH="$HOME/.k8stool/bin/:$PATH" 
+

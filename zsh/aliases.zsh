@@ -13,3 +13,10 @@ alias stop='spotify stop'
 alias play='spotify play'
 # alias last-dev-task="aws ecs describe-tasks --cluster rally-dev --tasks `aws ecs list-tasks --cluster rally-dev | jq -r '. | .taskArns[0]'` | jq -r '. |  .tasks[0].taskDefinitionArn'"
 
+alias k=kubectl
+alias h=helm
+alias kg='kubectl get'
+alias kcf='kubectl create -f'
+alias hi='helm install'
+alias hid='helm install --dry-run'
+alias drit='docker run --rm -it'
