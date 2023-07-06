@@ -28,22 +28,26 @@ zle -N newtab
 zle -N predict-on
 #zle -N predict-off
 
-bindkey '^N' newtab
+# bindkey '^N' newtab
 bindkey '^?' backward-delete-char
 bindkey "^K" history-substring-search-up
 bindkey "^J" history-substring-search-down
 bindkey "^R" history-incremental-search-backward
-bindkey "^X^Z" predict-on   # C-x C-z
-bindkey "^Z" predict-off    # C-z
+# bindkey "^X^Z" predict-on   # C-x C-z
+# bindkey "^Z" predict-off    # C-z
 bindkey "^L" forward-word
 bindkey "^H" backward-word
 bindkey "^A" beginning-of-line
 bindkey "^E" end-of-line
+bindkey '^[[H' beginning-of-line
+bindkey '^[[F' end-of-line
+#bindkey '^[[D' backward-word
+#bindkey '^[[C' forward-word
 
 # bind UP and DOWN arrow keys for history search
 zmodload zsh/terminfo
-bindkey "$terminfo[kcuu1]" history-substring-search-up
-bindkey "$terminfo[kcud1]" history-substring-search-down
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
 
 
 setopt autocd                   # change to dirs without cd
@@ -51,6 +55,8 @@ setopt pushd_to_home            # Push to home directory when no argument is giv
 setopt auto_pushd               # Push the old directory onto the stack on cd.
 setopt auto_name_dirs           # Auto add variable-stored paths to ~ list.
 setopt pushd_ignore_dups        # Do not store duplicates in the stack.
+unsetopt BAD_PATTERN  # helps with hash in commands
+unsetopt INTERACTIVE_COMMENTS
 
 # Report CPU usage for commands running longer than 10 seconds.
 export TIMEFMT="%U user %S system %P cpu %*E total, running %J"

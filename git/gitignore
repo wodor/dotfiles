@@ -1,4 +1,4 @@
-#
+    
 # dotphiles : https://github.com/dotphiles/dotphiles
 #
 # Git global ignores
@@ -22,6 +22,7 @@ dwsync.xml
 *.vi
 *.komodoproject
 *.idea
+.idea
 .komodotools
 nbproject
 
@@ -48,3 +49,13 @@ tags
 TAGS
 .env.wodor
 *.phar
+vendor8
+.deptrac.cache
+wodign.*
+*.wodign
+*.wodign.*
+.butterfish_index
+.github_token_what_if_its_missing
+.cursor
+.cursorignore
+*.code-workspace

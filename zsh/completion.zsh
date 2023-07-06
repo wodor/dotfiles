@@ -5,7 +5,7 @@ setopt autolist                # filename completion
 setopt listpacked              # compact completion lists
 setopt MARK_DIRS               # Append a trailing `/' to all directory names resulting from filename generation (globbing).
 setopt completeinword          # not just at the end
-setopt alwaystoend             # when complete from middle, move cursor
+#setopt alwaystoend             # when complete from middle, move cursor
 unsetopt correct_all
 
 # Case sensitive, partial word and substring completion

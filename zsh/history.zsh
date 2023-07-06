@@ -1,6 +1,6 @@
 HISTFILE=~/.zsh_history
-HISTSIZE=10000
-SAVEHIST=10000
+HISTSIZE=100000
+SAVEHIST=100000
 
 setopt append_history     # Allow multiple terminal sessions to all append to one zsh command history
 setopt extended_history   # Include more information about when the command was executed, etc

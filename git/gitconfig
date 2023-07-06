@@ -12,42 +12,26 @@
     merge = refs/heads/master
     autosetupmerge = always
 
-[color]
-    branch = always
-    diff = always
-    grep = always
-    interactive = always
-    pager = true
-    showbranch = auto
-    status = auto
-    ui = auto
-
-[color "interactive"]
-    error = red bold
-
-[color "branch"]
-    current = yellow reverse
-    local = yellow
-    remote = green
-
-[color "diff"]
-    meta = yellow
-    frag = magenta
-    old = red
-    new = green
-    whitespace = white reverse
-
-[color "status"]
-    added = yellow
-    changed = green
-    untracked = cyan
-    branch = magenta
+[branch "main"]
+    remote = origin
+    merge = refs/heads/main
+    autosetupmerge = always
 
 [core]
-    pager = less -FRSX
+    pager = cat
     whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
-	excludesfile = /Users/wodor/.gitignore
+	excludesFile = ~/.gitignore
 	autocrlf = input
+
+[color]
+    branch = false
+    diff = false
+    grep = false
+    interactive = false
+    pager = false
+    showbranch = false
+    status = false
+    ui = false
 
 [diff]
     tool = vimdiff
@@ -139,6 +123,7 @@
 	up = !git fetch && git rebase --autostash FETCH_HEAD
 
     recent = for-each-ref --sort=committerdate refs/remotes/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
+	iterm = !git -c include.path=~/.full.gitconfig
 
 [push]
 	default = current
@@ -148,4 +133,12 @@
 
 [user]
 	name = Artur 'Wodor' Wielogorski
-	email = wodor@wodor.net
+	email = artur.wielogorski@arbor-education.com
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/
+
