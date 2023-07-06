@@ -28,13 +28,13 @@ zle -N newtab
 zle -N predict-on
 #zle -N predict-off
 
-bindkey '^N' newtab
-bindkey '^?' backward-delete-char
-bindkey "^K" history-substring-search-up
-bindkey "^J" history-substring-search-down
-bindkey "^R" history-incremental-search-backward
-bindkey "^X^Z" predict-on   # C-x C-z
-bindkey "^Z" predict-off    # C-z
+# bindkey '^N' newtab
+# bindkey '^?' backward-delete-char
+# bindkey "^K" history-substring-search-up
+# bindkey "^J" history-substring-search-down
+# bindkey "^R" history-incremental-search-backward
+# bindkey "^X^Z" predict-on   # C-x C-z
+# bindkey "^Z" predict-off    # C-z
 bindkey "^L" forward-word
 bindkey "^H" backward-word
 bindkey "^A" beginning-of-line
@@ -42,8 +42,8 @@ bindkey "^E" end-of-line
 
 # bind UP and DOWN arrow keys for history search
 zmodload zsh/terminfo
-bindkey "$terminfo[kcuu1]" history-substring-search-up
-bindkey "$terminfo[kcud1]" history-substring-search-down
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
 
 
 setopt autocd                   # change to dirs without cd

@@ -22,6 +22,7 @@ dwsync.xml
 *.vi
 *.komodoproject
 *.idea
+.idea
 .komodotools
 nbproject
 

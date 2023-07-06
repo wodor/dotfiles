@@ -46,7 +46,7 @@
 [core]
     pager = less -FRSX
     whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
-	excludesfile = /Users/wodor/.gitignore
+	excludesFile = ~/.gitignore
 	autocrlf = input
 
 [diff]
@@ -147,5 +147,10 @@
     insteadof = github:
 
 [user]
-	name = Artur 'Wodor' Wielogorski
-	email = wodor@wodor.net
+	name = Art Wielogorski
+	email = artur.wielogorski@arbor-education.com
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
