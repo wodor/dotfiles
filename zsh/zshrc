@@ -32,7 +32,7 @@ unset file
 export GOPATH="/usr/local"
 export GOBIN=/usr/local/bin
 
-export GITHUB_TOKEN=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
+export GITHUB_TOKEN=
 export GITHUB_USERNAME=wodor
 export HOMESHICK_DIR=/opt/homebrew/opt/homeshick
 source "/opt/homebrew/opt/homeshick/homeshick.sh"
