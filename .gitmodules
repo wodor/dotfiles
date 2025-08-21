@@ -1,6 +1,0 @@
-[submodule "dotsync"]
-	path = dotsync
-	url = git@github.com:dotphiles/dotsync.git
-[submodule "antigen"]
-	path = antigen
-	url = git@github.com:zsh-users/antigen.git
