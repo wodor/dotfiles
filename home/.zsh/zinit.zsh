@@ -68,12 +68,3 @@ zinit light gerges-zz/oh-my-zsh-jira-plus
 # zinit light MichaelAquilina/zsh-you-should-use
 zinit light tom-doerr/zsh_codex
 zinit light z-shell/zsh-lsd
-
-# OpenClaw completion
-if (( ! $+functions[compdef] )); then
-    autoload -Uz compinit
-    compinit -i
-fi
-if (( $+functions[compdef] )); then
-    source "/Users/wodor/.openclaw/completions/openclaw.zsh"
-fi

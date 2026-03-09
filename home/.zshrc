@@ -118,14 +118,18 @@ alias ssm='/Users/artwielogorski/code/devops.scripts/bash/ssm-connect/ssm-connec
 
 export PATH="$HOME/.local/bin:$PATH"
 
-# OpenClaw Completion
 # check if the file exists
 if [ -f "/Users/wodor/.openclaw/completions/openclaw.zsh" ]; then
     source "/Users/wodor/.openclaw/completions/openclaw.zsh"
 fi
 
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/artur.wielogorski/.lmstudio/bin"
+# End of LM Studio CLI section
+
+
 # pnpm
-export PNPM_HOME="/Users/wodor/Library/pnpm"
+export PNPM_HOME="/Users/artur.wielogorski/Library/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;

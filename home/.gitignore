@@ -56,6 +56,6 @@ wodign.*
 *.wodign.*
 .butterfish_index
 .github_token_what_if_its_missing
-.cursor
+#.cursor
 .cursorignore
 *.code-workspace
