@@ -38,31 +38,42 @@ setopt promptsubst
 zinit wait lucid for \
         OMZL::git.zsh \
   atload"unalias grv" \
-        OMZP::git 
+        OMZP::git
 
 PS1="READY >" # provide a simple prompt till the theme loads
 
 # C.
 zinit wait'!' lucid for \
-    OMZL::prompt_info_functions.zsh 
+    OMZL::prompt_info_functions.zsh
 
 
-zinit ice depth=1; zinit light romkatv/powerlevel10k
+if [[ -o interactive && -z ${ZSH_EXECUTION_STRING-} ]]; then
+    zinit ice depth=1; zinit light romkatv/powerlevel10k
+fi
 # D.
 # zinit wait lucid for \
 #   atinit"zicompinit; zicdreplay"  \
 #         zdharma-continuum/fast-syntax-highlighting \
-#       OMZP::colored-man-pages 
+#       OMZP::colored-man-pages
 
-zi ice binary from'gh-r' sbin'**/lsd -> lsd' \
-  atclone'cp lsd-*/lsd.1 $ZI[MAN_DIR]/man1; ln -s lsd-*/*/_lsd _lsd'
-zi light Peltoche/lsd
+# zi ice binary from'gh-r' sbin'**/lsd -> lsd' \
+#   atclone'cp lsd-*/lsd.1 $ZI[MAN_DIR]/man1; ln -s lsd-*/*/_lsd _lsd'
+# zi light Peltoche/lsd
 
 zinit light zsh-users/zsh-history-substring-search
 zinit light zdharma-continuum/history-search-multi-word
 zinit light blimmer/zsh-aws-vault
 zinit light sroze/docker-compose-zsh-plugin
 zinit light gerges-zz/oh-my-zsh-jira-plus
-zinit light MichaelAquilina/zsh-you-should-use
+# zinit light MichaelAquilina/zsh-you-should-use
 zinit light tom-doerr/zsh_codex
 zinit light z-shell/zsh-lsd
+
+# OpenClaw completion
+if (( ! $+functions[compdef] )); then
+    autoload -Uz compinit
+    compinit -i
+fi
+if (( $+functions[compdef] )); then
+    source "/Users/wodor/.openclaw/completions/openclaw.zsh"
+fi

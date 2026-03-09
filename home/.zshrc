@@ -8,7 +8,7 @@ if [ -n "$ITERM_PROFILE" ];
 then
     #zmodload zsh/zprof
 
-    if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+    if [[ -o interactive && -z ${ZSH_EXECUTION_STRING-} && -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
       source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
     fi
 
@@ -18,7 +18,9 @@ then
     unset file
 
     # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-    [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+    if [[ -o interactive && -z ${ZSH_EXECUTION_STRING-} ]]; then
+      [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+    fi
     test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh" || true
 
     # check if we're using an iTerm2 profile that's non- or low-interactive
@@ -97,9 +99,6 @@ function git() {
 export LOLCOMMITS_DIR=/Users/artwielogorski/.lolcommits
 export EDITOR='vim'
 
-
-
-
 export PATH="$PATH:$HOME/.local/bin"
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$HOME/.symfony5/bin:$PATH
@@ -118,3 +117,17 @@ alias ssm='/Users/artwielogorski/code/devops.scripts/bash/ssm-connect/ssm-connec
 [[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
 
 export PATH="$HOME/.local/bin:$PATH"
+
+# OpenClaw Completion
+# check if the file exists
+if [ -f "/Users/wodor/.openclaw/completions/openclaw.zsh" ]; then
+    source "/Users/wodor/.openclaw/completions/openclaw.zsh"
+fi
+
+# pnpm
+export PNPM_HOME="/Users/wodor/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
