@@ -1,1 +1,38 @@
+# macOS
 .DS_Store
+**/.DS_Store
+
+# Claude Code — never commit these
+home/.claude/history.jsonl
+home/.claude/projects/
+home/.claude/sessions/
+home/.claude/session-env/
+home/.claude/shell-snapshots/
+home/.claude/telemetry/
+home/.claude/cache/
+home/.claude/plugins/data/
+home/.claude/plugins/cache/
+home/.claude/paste-cache/
+home/.claude/file-history/
+home/.claude/debug/
+home/.claude/hooks-logs/
+home/.claude/ide/
+home/.claude/stats-cache.json
+home/.claude/.DS_Store
+home/.claude/settings.json.bak
+home/.claude/cc-digest-state.json
+home/.claude/usage-data/
+home/.claude/tasks/
+home/.claude/downloads/
+home/.claude/backups/
+
+# Root-level Claude state (instance-specific)
+.claude.json
+
+# Sensitive patterns (belt-and-suspenders)
+*secret*
+*token*
+*.key
+*.pem
+*password*
+*credential*
